@@ -48,18 +48,27 @@ function displayPreviousSearches() {
 
 async function getWeatherData(city) {
   try {
+    // Clear any existing error message
+    const errorElement = document.getElementById("error-message");
+    errorElement.textContent = "";
+    errorElement.classList.remove("active");
+    
     const response = await fetch(`/weather/${city}`);
 
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.error || "Failed to fetch weather data");
+      errorElement.textContent = error.error || "Failed to fetch weather data";
+      errorElement.classList.add("active");
+      return;
     }
 
     const data = await response.json();
     displayWeatherData(data);
     addToPreviousSearches(data);
   } catch (error) {
-    alert(error.message);
+    const errorElement = document.getElementById("error-message");
+    errorElement.textContent = error.message;
+    errorElement.classList.add("active");
   }
 }
 
