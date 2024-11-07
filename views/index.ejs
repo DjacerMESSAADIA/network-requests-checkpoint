@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class="search-section">
+    <h1>Weather Forecast</h1>
+    <div class="search-box">
+      <input type="text" placeholder="Search for a city..." id="city-input" />
+      <button id="search-btn">Search</button>
+    </div>
+  </div>
+
+  <section class="weather-info" id="weather-info">
+    <div class="location">
+      <h2 id="city">City Name</h2>
+      <p id="country">Country</p>
+    </div>
+    <div class="weather-details">
+      <img id="weather-icon" src="" alt="Weather Icon" />
+      <p id="temperature">--°C</p>
+      <p id="description">Weather Description</p>
+      <div class="additional-info">
+        <p>Humidity: <span id="humidity">--%</span></p>
+        <p>Wind Speed: <span id="wind-speed">-- m/s</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="previous-searches" id="previous-searches">
+    <h2>Previous Searches</h2>
+    <div class="search-cards" id="search-cards">
+      <!-- Previous searches added here -->
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
